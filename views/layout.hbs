@@ -7,10 +7,22 @@
   </head>
   <body>
   <header>
-      {{#if trueHeader}}
-          <a name="signup_user_btn" href="/users/add" class="form-buttons">Зарегистрироваться</a>
-          <a name="signin_user_btn" href="/users/enter" class="form-buttons">Войти</a>
-      {{/if}}
+          {{#if userName}}
+                  <div class="main-page-login">
+                      <a href="/users/profile" class="form-buttons profile-buttons">{{userName}}</a>
+                      <a href="/users/logout" class="form-buttons profile-buttons">Выйти</a>
+                  </div>
+          {{else}}
+                  <div class="main-page-blocks">
+                      <div class="main-page-blocks-welcome">
+                          <h1>Welcome to EBC Auction!</h1>
+                      </div>
+                      <div class="main-page-blocks-buttons">
+                          <a name="signup_user_btn" href="/users/add" class="form-buttons">Зарегистрироваться</a>
+                          <a name="signin_user_btn" href="/users/enter" class="form-buttons">Войти</a>
+                      </div>
+                  </div>
+          {{/if}}
   </header>
     {{{body}}}
   </body>

@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorMessage = document.getElementsByClassName('user-sign-up-error')[0];
     const sendBtn = document.querySelector('.button-send');
 
+
     btnSbm.addEventListener('click', async () => {
+        const userName = document.getElementById('user-name').value;
        const userEmail = document.getElementById('user-email').value;
        const userPassword = document.getElementById('user-password').value;
 
@@ -14,13 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: {
                 "Content-Type": "application/json; charset=utf-8",
             },
-            body: JSON.stringify({email: userEmail, password: userPassword})
+            body: JSON.stringify({name: userName, email: userEmail, password: userPassword})
         });
 
         if (response.status === 200) {
             form.style.display = 'none';
             sendBtn.style.display = 'none';
-            message.style.display = 'block';
+           // message.style.display = 'block';
+            window.location = 'http://localhost:3000'
 
         } else {
             response = await response.text();
